@@ -1,21 +1,27 @@
-import { ENGINE_METHOD_RAND } from 'constants';
-import fs from 'fs';
-import _ from 'lodash'
-    
+import { ENGINE_METHOD_RAND } from "constants";
+import fs from "fs";
+import _ from "lodash";
+import promptSync from "prompt-sync";
+const prompt = promptSync({ sigint: true });
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////
 
 // read JSON object from file
-const events_data = fs.readFileSync('events.json', 'utf-8', (err, data) => {
-    if (err) {
-        throw err;
-        console.log('error');
-    }
+const events_data = fs.readFileSync("events.json", "utf-8", (err, data) => {
+  if (err) {
+    throw err;
+    console.log("error");
+  }
 });
 
-const options_data = fs.readFileSync('options.json', 'utf-8', (err, data) => {
-    if (err) {
-        throw err;
-    }
+const options_data = fs.readFileSync("options.json", "utf-8", (err, data) => {
+  if (err) {
+    throw err;
+  }
 });
 
 const events = JSON.parse(events_data.toString());
@@ -23,42 +29,62 @@ const options = JSON.parse(options_data.toString());
 
 ////////////////////////////////////////////////////////////////////////////////////////
 
-function engine(event_id) {
+async function engine(event_id) {
+  // Filter our Dictionaries to get relevant event info
+  let event = events[event_id];
+  let event_options_id = event[1];
 
-    let event = events[event_id];
-    let event_options_id = event[1];
-    console.log(event_options_id);
-
-    const event_options = Object.keys(options)
-    .filter(key => event_options_id.includes(key))
+  // Get relevant options for event
+  const event_options = Object.keys(options)
+    .filter((key) => event_options_id.includes(key))
     .reduce((obj, key) => {
-        obj[key] = options[key];
-        return obj;
+      obj[key] = options[key];
+      return obj;
     }, {});
 
-    // console.log(event_options);
+  ''' BASE CASE - ADD if length of options array is 0, then move to end state of game '''
 
-    // get character info
+   ''' get character info '''
 
-    console.log(event[0])
-    // display event Message
-    // display options
-    // read user Input
+   // log the event message
+  console.log(event[0]);
+  await sleep(1000);
+  console.log("Do you want to:");
 
-    // Rng:
-    // use character info to bias Rng
-    // do Rng
-    // next_event = outcome
+  ''' ADD: reindexing our dictionaries to display options as a,b,c (even if key of option is z) '''
+  for (const [key, value] of Object.entries(event_options)) {
+    console.log(`${key}: ${value[0]}`);
+  }
 
-    // display option outcome
-    // update character
+  // read user Input
+  await sleep(1000);
+  let chosen_option_id = prompt("Choose your option: ");
+  await sleep(3000);
+  '''ADD try bit here if input is not an option index'''
 
-    // if (next_event_id) {
-    //     engine(next_event_id);
-    // }
-    // else {
-    //     console.log('Done!')
-    // }
+  // Rng:
+  // use character info to bias Rng
+  // do Rng
+  // successful = True/False
+  // update character
+
+  let successful = true; // our assumption, remove when rng done
+  if (successful) {
+      //print message for 'successful' event
+    console.log(event_options[chosen_option_id][1][1]);
+    await sleep(1000);
+    console.log(); //new line to split up subsequent events
+    //pass the next event into our engine
+    engine(event_options[chosen_option_id][1][0]);
+    return;
+  } else {
+      //print message for 'successful' event
+    console.log(event_options[chosen_option_id][2][1]);
+    await sleep(1000);
+    console.log(); //new line to split up subsequent events
+    //pass the next event into our engine
+    engine(event_options[chosen_option_id][2][0]);
+  }
 }
 
-engine('river')
+engine("river"); //only uses river for now, remove later

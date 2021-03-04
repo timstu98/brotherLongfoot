@@ -17,24 +17,23 @@ class Character {
   }
 
   increaseStrength(value) {
-    this.strength += value    
+    this.strength += value;
   }
   decreaseStrength(value) {
-    this.strength -= value    
+    this.strength -= value;
   }
   increaseRange(value) {
-    this.range += value    
+    this.range += value;
   }
   decreaseRange(value) {
-    this.range -= value    
+    this.range -= value;
   }
   increaseLuck(value) {
-    this.luck += value    
+    this.luck += value;
   }
   decreaseLuck(value) {
-    this.luck -= value    
+    this.luck -= value;
   }
-
 
   checkBounds(value) {
     if (value > 100) {
@@ -87,19 +86,19 @@ class Character {
   }
 }
 
-class Human extends Character {
+export class Human extends Character {
   constructor(name) {
     super(name, 50, 50, 75, 25, false);
   }
 }
 
-class Elf extends Character {
+export class Elf extends Character {
   constructor(name) {
     super(name, 75, 25, 50, 50, true);
   }
 }
 
-class Hobbit extends Character {
+export class Hobbit extends Character {
   constructor(name) {
     super(name, 50, 50, 25, 75, false);
   }

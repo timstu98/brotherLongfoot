@@ -1,1 +1,9 @@
-{"river":["You arrive at river",["a","b","c"]],"drown":["You died lol",[]],"cross":["You made it across safely. Now you see a ghost ...",["d","e","f"]],"GAME OVER":["U LOST SUCKA",[]]}
+{
+  "river": ["You arrive at river", ["a", "b", "c"]],
+  "drown": ["You died lol", []],
+  "cross": [
+    "Now, across the river, you see a scary ass ghost ...",
+    ["d", "e", "f"]
+  ],
+  "GAME OVER": ["U LOST SUCKA", []]
+}

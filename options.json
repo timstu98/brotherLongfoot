@@ -1,1 +1,28 @@
-{"a":["Run away",["GAME OVER","You ran away you massive coward"],["GAME OVER","You ran away you massive coward"]],"b":["Swim across river",["cross",""],["drown",""]],"c":["build raft",["cross",""],["drown",""]],"d":["Run away",["GAME OVER","You ran away you massive coward"],["GAME OVER","You ran away you massive coward"]],"e":["Run away",["GAME OVER","You ran away you massive coward"],["GAME OVER","You ran away you massive coward"]],"f":["Run away",["GAME OVER","You ran away you massive coward"],["GAME OVER","You ran away you massive coward"]]}
+{
+  "a": [
+    "Run away",
+    ["GAME OVER", "You ran away you massive coward"],
+    ["GAME OVER", "You ran away you massive coward"]
+  ],
+  "b": [
+    "Swim across river",
+    ["cross", "your swam across well"],
+    ["drown", "oops you drowned"]
+  ],
+  "c": ["build raft", ["cross", ""], ["drown", ""]],
+  "d": [
+    "d option",
+    ["GAME OVER", "You ran away you massive coward"],
+    ["GAME OVER", "You ran away you massive coward"]
+  ],
+  "e": [
+    "e option",
+    ["GAME OVER", "You ran away you massive coward"],
+    ["GAME OVER", "You ran away you massive coward"]
+  ],
+  "f": [
+    "f option",
+    ["GAME OVER", "You ran away you massive coward"],
+    ["GAME OVER", "You ran away you massive coward"]
+  ]
+}
