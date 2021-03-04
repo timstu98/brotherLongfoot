@@ -1,6 +1,6 @@
 {
   "name": "brotherlongfoot",
-  "type":"module"
+  "type":"module",
   "version": "1.0.0",
   "description": "A simple fantasy game",
   "main": "index.js",
