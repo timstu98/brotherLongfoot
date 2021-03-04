@@ -1,0 +1,20 @@
+{
+  "name": "brotherlongfoot",
+  "type":"module"
+  "version": "1.0.0",
+  "description": "A simple fantasy game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/timstu98/brotherLongfoot.git"
+  },
+  "author": "Tim Stuart, Lionel Smith, Tom Fabian, Ed Dixon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/timstu98/brotherLongfoot/issues"
+  },
+  "homepage": "https://github.com/timstu98/brotherLongfoot#readme"
+}
