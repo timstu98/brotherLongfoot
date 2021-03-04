@@ -4,8 +4,8 @@ class Character {
     this._health = health;
     this._strength = strength;
     this._range = range;
-    this.luck = luck;
-    this.magic = magic;
+    this._luck = luck;
+    this._magic = magic;
   }
 }
 
