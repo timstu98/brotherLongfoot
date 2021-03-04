@@ -1,6 +1,6 @@
 {
   "name": "brotherlongfoot",
-  "type":"module",
+  "type": "module",
   "version": "1.0.0",
   "description": "A simple fantasy game",
   "main": "index.js",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/timstu98/brotherLongfoot/issues"
   },
-  "homepage": "https://github.com/timstu98/brotherLongfoot#readme"
+  "homepage": "https://github.com/timstu98/brotherLongfoot#readme",
+  "devDependencies": {
+    "lodash": "^4.17.21",
+    "prompt-sync": "^4.2.0"
+  }
 }
