@@ -102,7 +102,7 @@ export async function engine(event_id, player) {
       default:
         break;
     }
-    if (event[selection].message !== "") {
+    if (event[selection].success.message !== "") {
       await sleep(5000);
     }
     console.log(); //new line to split up subsequent events
@@ -131,8 +131,9 @@ export async function engine(event_id, player) {
       default:
         break;
     }
-
-    await sleep(5000);
+    if (event[selection].success.message !== "") {
+      await sleep(5000);
+    }
 
     console.log(); //new line to split up subsequent events
     //pass the next event into our engine
