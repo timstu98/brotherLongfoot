@@ -23,6 +23,7 @@ export async function engine(event_id, player) {
   // get character info
 
   // log the event message
+  await sleep(1000);
   console.log(event.pretext);
   await sleep(1000);
   console.log("Do you want to:");
@@ -42,7 +43,7 @@ export async function engine(event_id, player) {
   //   return engine("CURRENT EVENT");
   // }
 
-  await sleep(3000);
+  //await sleep(1000);
 
   // Rng: Read Type of Event, take relevant scaled values from characters, weigh against rng.
   let chance;
@@ -101,7 +102,9 @@ export async function engine(event_id, player) {
       default:
         break;
     }
-    await sleep(1000);
+    if (event[selection].message !== "") {
+      await sleep(5000);
+    }
     console.log(); //new line to split up subsequent events
 
     //pass the next event into our engine
@@ -128,7 +131,8 @@ export async function engine(event_id, player) {
       default:
         break;
     }
-    await sleep(1000);
+
+    await sleep(5000);
 
     console.log(); //new line to split up subsequent events
     //pass the next event into our engine
