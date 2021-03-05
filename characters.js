@@ -35,11 +35,11 @@ class Character {
     this.luck -= value;
   }
 
-  checkBounds(value) {
-    if (value > 100) {
-      return 100;
-    } else if (value < 0) {
-      return 0;
+  checkBounds(value, upper = 100, lower = 0) {
+    if (value > upper) {
+      return upper;
+    } else if (value < lower) {
+      return lower;
     } else {
       return value;
     }
@@ -83,6 +83,30 @@ class Character {
 
   get magic() {
     return this._magic;
+  }
+
+  get meleeStat() {
+    let value = this.strength * 0.6 + this.range * 0.25 + this.luck * 0.15;
+    if (this.magic) {
+      value *= 0.8;
+    }
+    return Math.floor(this.checkBounds(value, 90, 10));
+  }
+
+  get trickStat() {
+    let value = this.strength * 0.15 + this.range * 0.25 + this.luck * 0.6;
+    if (this.magic) {
+      value *= 1.3;
+    }
+    return Math.floor(this.checkBounds(value, 90, 10));
+  }
+
+  get distanceStat() {
+    let value = this.strength * 0.25 + this.range * 0.6 + this.luck * 0.15;
+    if (this.magic) {
+      value *= 1.1;
+    }
+    return Math.floor(this.checkBounds(value, 90, 10));
   }
 }
 

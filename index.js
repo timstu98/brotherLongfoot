@@ -2,10 +2,9 @@
 // const name = prompt('Enter your character name');
 // console.log(`Hey there ${name}, please choose your class`);
 
-
-
 import { Human, Elf, Hobbit } from "./characters.js";
 import promptSync from "prompt-sync";
+import { engine } from "./engine.js";
 
 const prompt = promptSync({ sigint: true });
 
@@ -71,3 +70,6 @@ function createCharacter() {
 const Player = createCharacter();
 
 console.log(`Hey there ${Player.name}`);
+// console.log(Player);
+
+engine("mainEvent1", Player);
