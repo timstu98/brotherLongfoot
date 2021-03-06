@@ -96,4 +96,18 @@ const Player = createCharacter();
 console.log(`Hey there ${Player.name}`);
 // console.log(Player);
 
+console.log(`A shrewd monk of indeterminate age approaches you at a tavern.`);
+
+await sleep(2000);
+
+console.log(`Brother Longfoot has lost his favourite pair of loafers to an elf in a game of blackjack; 
+he is looking for an adventurer to undertake the arduous task of retrieving his holy shoes.`);
+
+await sleep(3000);
+
+console.log(
+  `Barefoot, he escorts you out of the tavern and gives you directions…`
+);
+await sleep(2000);
+
 engine("mainEvent1", Player);

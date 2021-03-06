@@ -102,8 +102,9 @@ export async function engine(event_id, player) {
       default:
         break;
     }
+
     if (event[selection].success.message !== "") {
-      await sleep(5000);
+      await sleep(5000); //no delay if no message to display
     }
     console.log(); //new line to split up subsequent events
 
@@ -144,5 +145,3 @@ export async function engine(event_id, player) {
     engine(nextEvent, player);
   }
 }
-
-// engine("mainEvent0"); //only uses river for now, remove later

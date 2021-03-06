@@ -1,7 +1,7 @@
 export const events = {
   mainEvent1: {
     pretext:
-      "The meandering trail through the woods leads to a cavern, a large troll stands guard at its mouth. It stares at you stupidly.”",
+      "The meandering trail through the woods leads to a cavern, a large troll stands guard at its mouth. It stares at you stupidly.",
     a: {
       option: "Convince the troll to arm-wrestle you for entry.",
       trait: "melee",
@@ -200,7 +200,7 @@ export const events = {
       },
       failure: {
         nextEvent: "choosePathway",
-        decreaseHealth: 20,
+        takeDamage: 20,
         message:
           "The spell backfires, the dragon's nicotine addiction intensifies. The dragon swipes at you with its baccy-stained claws in anger, you lose ten health but escape.",
       },
@@ -217,23 +217,23 @@ export const events = {
       failure: {
         nextEvent: "GAME OVER",
         message:
-          "The dragon is insulted by the direct nature of your question. It eats you",
+          "The dragon is insulted by the direct nature of your question. It eats you.",
       },
     },
     c: {
       option: "Attempt to kill the dragon with your bow.",
       trait: "distance",
       success: {
-        nextEvent: "choosePath",
+        nextEvent: "choosePathway",
         increaseDistance: 5,
         message:
           "Your arrow strikes the dragon in its eye. Any information it had dies with it.",
       },
       failure: {
-        nextEvent: "choosePath",
+        nextEvent: "choosePathway",
         message:
           "The arrow misses, knocking the freshly lit blem out of the dragon's mouth. It charges at you in fury, you escape but are harmed by falling rocks.",
-        decreaseHealth: 25,
+        takeDamage: 25,
       },
     },
   },
@@ -276,5 +276,149 @@ export const events = {
         message: "",
       },
     },
+  },
+
+  rockyPathway: {
+    pretext: `As you approach the mouth of the great mountain, you become aware of the pounding of metal echoing through these halls.
+    You draw your weapon and approach. Heat from a forge, blasted through bellows sears your face. Dwarves.`,
+    a: {
+      option:
+        "You love Dwarves, Dwarves love you. You take your chances with your charisma and good-looks and stroll in.",
+      trait: "luck",
+      success: {
+        nextEvent: "mainEventFinal",
+        message:
+          "You wake up with a banging headache and the light in your eyes, you regret your decisions as you remember your rule to never party with Dwarves.",
+        takeDamage: 5,
+        increaseStrength: 10,
+      },
+      failure: {
+        nextEvent: "choosePathaway",
+        message:
+          "You're not as charming as you thought. They don't take kindly to your swaggering into their home, they teach you a lesson on etiquette, give you a good beating and toss you back outside. -10 to self esteem.",
+        takeDamage: 15,
+        decreaseLuck: 5,
+      },
+    },
+    b: {
+      option:
+        "You're light on your feet and they're not all too vigilant, you attempt to sneak past.",
+      trait: "distance",
+      success: {
+        nextEvent: "mainEventFinal",
+        message:
+          "As you tiptoe inches behind them, the bellows cover the sound of your footsteps, you even manage to swipe a rack of manticore ribs as you go. Lucky you!",
+        increaseHealth: 10,
+        increaseLuck: 5,
+      },
+      failure: {
+        nextEvent: "mainEventFinal",
+        message: `Your laughable attempt at stealth sees you blunder into their rack of tools, you grimace awkwardly as they clatter to the floor.
+        The dwarves look more disappointed than anything. They give you directions through the mountain and send you on your way. You feel weak with shame. -10 strength.`,
+        decreaseStrength: 10,
+      },
+    },
+  },
+  climbRocks: {
+    pretext: "",
+    a: {
+      option: "",
+      success: {
+        nextEvent: "",
+        message: "",
+      },
+      failure: {
+        nextEvent: "",
+        message: "",
+      },
+    },
+    b: {
+      option: "",
+      success: {
+        nextEvent: "",
+        message: "",
+      },
+      failure: {
+        nextEvent: "",
+        message: "",
+      },
+    },
+  },
+  goAround: {
+    pretext: "",
+    a: {
+      option: "",
+      success: {
+        nextEvent: "",
+        message: "",
+      },
+      failure: {
+        nextEvent: "",
+        message: "",
+      },
+    },
+    b: {
+      option: "",
+      success: {
+        nextEvent: "",
+        message: "",
+      },
+      failure: {
+        nextEvent: "",
+        message: "",
+      },
+    },
+  },
+
+  mainEventFinal: {
+    pretext:
+      'The sun shines resplendent at the summit of the mountain; Brother Longfoot stands at the top of it, barefoot. "There never were any loafers!" yells the monk.',
+    a: {
+      option: "Use magic to attack the monk.",
+      trait: "magic",
+      success: {
+        nextEvent: "epilogue",
+        message:
+          "Your spell hits him successfully. He disappears in a puff of smoke, leaving behind a pair of loafers in your size. Brother Longfoot was the shoes this whole time.",
+      },
+      failure: {
+        nextEvent: "GAME OVER",
+        message:
+          "Your spell misses, Brother Longfoot summons a swarm of bees to chase you off the mountain.",
+      },
+    },
+    b: {
+      option: "Attempt to knock out the shoeless monk.",
+      trait: "melee",
+      success: {
+        nextEvent: "epilogue",
+        message:
+          "The punch connects and knocks him out. He disappears in a puff of smoke, leaving behind a pair of loafers in your size. Brother Longfoot was the shoes this whole time.",
+      },
+      failure: {
+        nextEvent: "GAME OVER",
+        message:
+          "You miss the punch, Brother Longfoot summons a swarm of bees to chase you off the mountain.",
+      },
+    },
+    c: {
+      option: "Convince the monk that this plot twist is very poor.",
+      trait: "luck",
+      success: {
+        nextEvent: "epilogue",
+        message:
+          "The monk agrees with your criticism of the plot. He disappears in a puff of smoke, leaving behind a pair of loafers in your size. Brother Longfoot was the shoes this whole time.",
+      },
+      failure: {
+        nextEvent: "GAME OVER",
+        message:
+          "The monk disagrees with your critcism of the plot, he shoots lasers out of his eyes and you die.",
+      },
+    },
+  },
+
+  epilogue: {
+    pretext:
+      "You depart the mountain to seek other adventures, your new shoes are very comfortable. The end.",
   },
 };
