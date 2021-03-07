@@ -320,12 +320,17 @@ export const events = {
     },
   },
   climbRocks: {
-    pretext: "",
+    pretext: `Halfway through the arduous ascent, you begin to haul yourself onto a ledge. You are greeted by a deathly grin afront the dramatic backdrop.
+    A rasped voice giggles "What can run, but never walks; has a mouth, but never talks; has a head, but never weeps; has a bed, but never sleeps?".
+    How do you answer?`,
     a: {
-      option: "",
+      option: "A river.",
+      trait: "guaranteed",
       success: {
-        nextEvent: "",
-        message: "",
+        nextEvent: "mainEventFinal",
+        message:
+          "The voice sighs as you're helped onto the ledge, and mumbles something like 'too easy... Never stealing riddles from other videogames again'. You are shown the easiest route up and begrudgingly handed a mysterious runestone. +10 range.",
+        increaseDistance: 10,
       },
       failure: {
         nextEvent: "",
@@ -333,35 +338,62 @@ export const events = {
       },
     },
     b: {
-      option: "",
+      option: "A child.",
+      trait: "guaranteed",
       success: {
-        nextEvent: "",
-        message: "",
+        nextEvent: "choosePathway",
+        message:
+          "'Try a different path, riddles arent for you.' You're thrown from the cliff and hit the deck with an unpleasant thud. -15 health.",
+        takeDamage: 15,
       },
       failure: {
         nextEvent: "",
         message: "",
+      },
+    },
+    c: {
+      option:
+        "You have no time for these games, you lunge at the shadowy figure.",
+      trait: "melee",
+      success: {
+        nextEvent: "mainEventFinal",
+        message:
+          "Your fist finds the toothy grin and you topple him over the edge, a scream from below informs you that was cheating. You hate riddles.",
+      },
+      failure: {
+        nextEvent: "choosePathway",
+        message:
+          "Your hand finds nothing but smoke, you're reminded of those marlboro reds as you plummet to the floor. -10 health.",
+        takeDamage: 10,
       },
     },
   },
   goAround: {
-    pretext: "",
+    pretext:
+      "The winding path up and around the mountain takes you to a sheer cliff where the path gives way for around 10m.",
     a: {
-      option: "",
+      option:
+        "Above, you notice a rock formation precariously jutting out over the gap, you figure a well placed arrow could provide you the path you're looking for.",
+      trait: "distance",
       success: {
-        nextEvent: "",
-        message: "",
+        nextEvent: "mainEventFinal",
+        message:
+          "I don't know how that worked but I'm out of ideas, a perfectly formed bridge with handrails and all falls into place. You trek on to the summit.",
       },
       failure: {
-        nextEvent: "",
-        message: "",
+        nextEvent: "mainEventFinal",
+        message:
+          "An ambitious attempt only partially rewarded, the formation tumbles, filling the gap but burying you in the process. You dig yourself out to find you've lost 10 health.",
+        takeDamage: 10,
       },
     },
     b: {
-      option: "",
+      option:
+        "You incorrectly back yourself to jump the gap. Don't do this. You will die.",
+      trait: "guaranteed",
       success: {
-        nextEvent: "",
-        message: "",
+        nextEvent: "GAME OVER",
+        message: "Told you so.",
       },
       failure: {
         nextEvent: "",
