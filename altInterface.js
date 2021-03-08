@@ -293,7 +293,7 @@ export const events = {
         increaseStrength: 10,
       },
       failure: {
-        nextEvent: "choosePathaway",
+        nextEvent: "choosePathway",
         message:
           "You're not as charming as you thought. They don't take kindly to your swaggering into their home, they teach you a lesson on etiquette, give you a good beating and toss you back outside. -10 to self esteem.",
         takeDamage: 15,
