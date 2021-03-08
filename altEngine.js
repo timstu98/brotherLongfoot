@@ -10,25 +10,22 @@ function sleep(ms) {
 }
 
 export async function engine(event_id, player) {
-  console.log(`Health: ${player.health}`);
-  console.log(`Battle Stat: ${player.meleeStat}`);
-  console.log(`Trick Stat: ${player.trickStat}`);
-  console.log(`Distance Stat: ${player.distanceStat}`);
+  console.log(`
+  Health: ${player.health}
+  Battle Stat: ${player.meleeStat}
+  Trick Stat: ${player.trickStat}
+  Distance Stat: ${player.distanceStat}
+  `);
 
   // Filter our Dictionaries to get relevant event info
   let event = events[event_id];
 
-  // BASE CASE - ADD if length of options array is 0, then move to end state of game '''
-
-  // get character info
-
   // log the event message
   await sleep(1000);
   console.log(event.pretext);
+  if (event_id == "gameOver" || event_id == "epilogue") return;
   await sleep(1000);
   console.log("Do you want to:");
-
-  // ADD: reindexing our dictionaries to display options as a,b,c (even if key of option is z) '''
 
   console.log(`a: ${event.a.option}`);
   console.log(`b: ${event.b.option}`);
@@ -37,11 +34,17 @@ export async function engine(event_id, player) {
   }
   // read user Input
   await sleep(1000);
-  let selection = prompt("Choose your option: ");
-  // if (!Object.keys(event_options).includes(selection)) {
-  //   console.log("Bad Input \n Try again \n");
-  //   return engine("CURRENT EVENT");
-  // }
+  let selection;
+  function promptCheck() {
+    let choice = prompt("Choose your option: ");
+    if (!event[choice]) {
+      console.log("Please choose from the available options!\n");
+      return promptCheck();
+    }
+    return choice;
+  }
+
+  selection = promptCheck();
 
   //await sleep(1000);
 
@@ -139,7 +142,7 @@ export async function engine(event_id, player) {
     console.log(); //new line to split up subsequent events
     //pass the next event into our engine
     if (!player.health) {
-      console.log("YOU DIED \nGAME OVER");
+      engine("gameOver", player);
       return;
     }
     engine(nextEvent, player);
