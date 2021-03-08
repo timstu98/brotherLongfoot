@@ -1,10 +1,6 @@
-// const prompt = require('prompt-sync')({sigint: true});
-// const name = prompt('Enter your character name');
-// console.log(`Hey there ${name}, please choose your class`);
-
 import { Human, Elf, Hobbit } from "./characters.js";
 import promptSync from "prompt-sync";
-import { engine } from "./altEngine.js";
+import { engine } from "./engine.js";
 
 const prompt = promptSync({ sigint: true });
 function sleep(ms) {
@@ -94,7 +90,6 @@ function createCharacter() {
 const Player = createCharacter();
 
 console.log(`Hey there ${Player.name}`);
-// console.log(Player);
 
 console.log(`A shrewd monk of indeterminate age approaches you at a tavern.`);
 
