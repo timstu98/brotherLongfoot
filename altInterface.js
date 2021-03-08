@@ -392,7 +392,7 @@ export const events = {
         "You incorrectly back yourself to jump the gap. Don't do this. You will die.",
       trait: "guaranteed",
       success: {
-        nextEvent: "GAME OVER",
+        nextEvent: "gameOver",
         message: "Told you so.",
       },
       failure: {
@@ -414,7 +414,7 @@ export const events = {
           "Your spell hits him successfully. He disappears in a puff of smoke, leaving behind a pair of loafers in your size. Brother Longfoot was the shoes this whole time.",
       },
       failure: {
-        nextEvent: "GAME OVER",
+        nextEvent: "gameOver",
         message:
           "Your spell misses, Brother Longfoot summons a swarm of bees to chase you off the mountain.",
       },
@@ -428,7 +428,7 @@ export const events = {
           "The punch connects and knocks him out. He disappears in a puff of smoke, leaving behind a pair of loafers in your size. Brother Longfoot was the shoes this whole time.",
       },
       failure: {
-        nextEvent: "GAME OVER",
+        nextEvent: "gameOver",
         message:
           "You miss the punch, Brother Longfoot summons a swarm of bees to chase you off the mountain.",
       },
@@ -442,7 +442,7 @@ export const events = {
           "The monk agrees with your criticism of the plot. He disappears in a puff of smoke, leaving behind a pair of loafers in your size. Brother Longfoot was the shoes this whole time.",
       },
       failure: {
-        nextEvent: "GAME OVER",
+        nextEvent: "gameOver",
         message:
           "The monk disagrees with your critcism of the plot, he shoots lasers out of his eyes and you die.",
       },
@@ -452,5 +452,14 @@ export const events = {
   epilogue: {
     pretext:
       "You depart the mountain to seek other adventures, your new shoes are very comfortable. The end.",
+  },
+  gameOver: {
+    pretext: `
+    ░██╗░░░░░░░██╗░█████╗░░██████╗████████╗███████╗██████╗░
+    ░██║░░██╗░░██║██╔══██╗██╔════╝╚══██╔══╝██╔════╝██╔══██╗
+    ░╚██╗████╗██╔╝███████║╚█████╗░░░░██║░░░█████╗░░██║░░██║
+    ░░████╔═████║░██╔══██║░╚═══██╗░░░██║░░░██╔══╝░░██║░░██║
+    ░░╚██╔╝░╚██╔╝░██║░░██║██████╔╝░░░██║░░░███████╗██████╔╝
+    ░░░╚═╝░░░╚═╝░░╚═╝░░╚═╝╚═════╝░░░░╚═╝░░░╚══════╝╚═════╝░`,
   },
 };
