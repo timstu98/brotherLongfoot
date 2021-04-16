@@ -6,9 +6,9 @@ A Command Line role play game mini-project for the Bright Network Technology Aca
 Follow the adventures of Brother Longfoot as he attempts to kill the dragon and find the treasure!
 
 Tech focused on:
-JS
-OOP
-Working on the command-line
+JS  
+OOP  
+Working on the command-line  
 
 
 Creators:
